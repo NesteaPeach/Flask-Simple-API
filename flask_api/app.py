@@ -52,7 +52,7 @@ def get_store(store_id):
     try:
         return stores[store_id], 200
     except KeyError:
-        return abort(404, message="Store not found")
+        abort(404, message="Store not found")
 
 
 @app.get("/item/<string:item_id>")  # http://127.0.0.1:5000/item/item_id - return item
@@ -60,4 +60,4 @@ def get_item(item_id):
     try:
         return items[item_id], 200
     except KeyError:
-        return abort(404, message="Item not found")
+        abort(404, message="Item not found")
