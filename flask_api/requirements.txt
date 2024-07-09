@@ -2,3 +2,5 @@ flask~=3.0.2
 flask-smorest
 python-dotenv
 marshmallow~=3.21.2
+sqlalchemy
+flask-sqlalchemy
