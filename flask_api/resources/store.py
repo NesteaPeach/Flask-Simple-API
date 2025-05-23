@@ -2,10 +2,7 @@ import uuid
 from flask import request
 from flask.views import MethodView
 from flask_smorest import Blueprint, abort
-
-from db import stores
-from schemas import StoreSchema
-
+from flask_api.schemas import StoreSchema
 
 blp = Blueprint("Stores", __name__, description="Operations on stores")
 
