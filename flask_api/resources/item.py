@@ -1,7 +1,7 @@
 from flask.views import MethodView
 from flask_smorest import Blueprint, abort
 from sqlalchemy.exc import SQLAlchemyError
-
+from flask_jwt_extended import jwt_required
 from flask_api.db import db
 from flask_api.models import ItemModel
 from flask_api.schemas import ItemSchema, ItemUpdateSchema
@@ -16,12 +16,14 @@ class Item(MethodView):
         item = ItemModel.query.get_or_404(item_id)
         return item
 
+    @jwt_required()
     def delete(self, item_id):
         item = ItemModel.query.get_or_404(item_id)
         db.session.delete(item)
         db.session.commit()
         return {"message": "Item Deleted."}
 
+    @jwt_required()
     @blp.arguments(ItemUpdateSchema)
     @blp.response(200, ItemSchema)
     def put(self, item_data, item_id):
@@ -43,6 +45,7 @@ class ItemList(MethodView):
     def get(self):
         return ItemModel.query.all()
 
+    @jwt_required()  # when using jwt_required the API request need to contain a header "Authorization":"Bearer Token"
     @blp.arguments(ItemSchema)
     @blp.response(201, ItemSchema)
     def post(self, item_data):
