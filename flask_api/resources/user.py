@@ -9,7 +9,7 @@ from flask_api.models import UserModel
 from flask_api.schemas import UserSchema
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt, create_refresh_token, get_jwt_identity
 
-blp = Blueprint("Stores", __name__, description="Operations on stores")
+blp = Blueprint("Users", __name__, description="Operations on stores")
 
 
 @blp.route("/user/<int:user_id>")

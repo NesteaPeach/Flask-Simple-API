@@ -2,6 +2,7 @@ from flask.views import MethodView
 from flask_smorest import Blueprint, abort
 from sqlalchemy.exc import SQLAlchemyError
 from flask_jwt_extended import jwt_required, get_jwt
+
 from flask_api.db import db
 from flask_api.models import ItemModel
 from flask_api.schemas import ItemSchema, ItemUpdateSchema

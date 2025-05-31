@@ -7,7 +7,7 @@ from flask_api.db import db
 from flask_api.models import TagModel, StoreModel, ItemModel
 from flask_api.schemas import TagSchema, TagAndItemSchema
 
-blp = Blueprint("Items", __name__, description="Operations on tags")
+blp = Blueprint("Tags", __name__, description="Operations on tags")
 
 
 @blp.route("/store/<int:store_id>/tag")
